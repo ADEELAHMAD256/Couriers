@@ -14,13 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return const ScreenUtilInit(
+    return ScreenUtilInit(
       // designSize: Size(size.width, size.height),
-      designSize: Size(430, 932),
+      designSize: const Size(430, 932),
       // minTextAdapt: true,
       // splitScreenMode: false,
-      child: GetMaterialApp(
-        home: BottomNavBarScreen(),
+      child: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: GetMaterialApp(
+          home: BottomNavbarScreen(),
+        ),
       ),
     );
   }

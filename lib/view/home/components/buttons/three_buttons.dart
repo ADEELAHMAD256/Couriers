@@ -1,6 +1,9 @@
 import 'package:couriers/import/common_imports.dart';
+import 'package:flutter/cupertino.dart';
 
+import '../../../../utils/navigator.dart';
 import '../../../add_address/add_address_screen.dart';
+import '../../../address_book/address_book_screen.dart';
 import 'button_data_model.dart';
 
 class ThreeButtons extends StatelessWidget {
@@ -18,7 +21,9 @@ class ThreeButtons extends StatelessWidget {
           (index) => GestureDetector(
             onTap: () {
               if (index == 0) {
-                Get.to(const AddAddressScreen());
+                customNavigator(context, const AddAddressScreen());
+              } else if (index == 1) {
+                customNavigator(context, const AddressBookScreen());
               }
             },
             child: Container(

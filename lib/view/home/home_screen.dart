@@ -1,8 +1,8 @@
 import 'package:couriers/import/common_imports.dart';
+import '../../utils/custom_search_bar.dart';
 import 'components/buttons/three_buttons.dart';
 import 'components/credit_card.dart';
 import 'components/header.dart';
-import 'components/search_tracking_number.dart';
 import 'components/shipment_list.dart';
 import 'components/shipment_text.dart';
 
@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            SizedBox(height: 10.h),
             const Header(),
             SizedBox(height: 40.h),
             Padding(
@@ -24,7 +25,9 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   const CreditCard(),
                   SizedBox(height: 40.h),
-                  const SearchTrackingNumber(),
+                  const CustomSearchBar(
+                    hintText: 'Enter Tracking Number Or Recipient’s Name',
+                  ),
                   SizedBox(height: 25.h),
                   const ThreeButtons(),
                   SizedBox(height: 25.h),
