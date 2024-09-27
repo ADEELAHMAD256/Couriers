@@ -1,6 +1,5 @@
 import 'package:couriers/import/common_imports.dart';
 import 'package:intl/intl.dart';
-import '../../utils/header_text.dart';
 import '../captains/components/filter_text_fields.dart';
 import 'components/upper_part.dart';
 
@@ -50,23 +49,7 @@ class _AdvanceFilterScreenState extends State<AdvanceFilterScreen> {
           padding: EdgeInsets.symmetric(horizontal: 30.0.w),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () => Get.back(),
-                    icon: Icon(Icons.arrow_back_ios),
-                  ),
-                  const HerderText(text: "Filters"),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.transparent,
-                    ),
-                  ),
-                ],
-              ),
+              const HeaderWithArrow(title: "Add Address"),
               const UpperPartFilter(),
               Row(
                 children: [

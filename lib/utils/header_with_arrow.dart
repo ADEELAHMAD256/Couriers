@@ -21,6 +21,7 @@ class HeaderWithArrow extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios,
                 size: 20.r,
+                color: k7F7F7F,
               ),
             ),
             HerderText(text: title ?? ""),
@@ -31,6 +32,56 @@ class HeaderWithArrow extends StatelessWidget {
                 color: Colors.transparent,
               ),
             ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class HeaderWithArrowWithActions extends StatelessWidget {
+  final String? title;
+  final String? subTitle;
+  final String? assetName;
+  const HeaderWithArrowWithActions({
+    super.key,
+    this.title,
+    this.assetName,
+    this.subTitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(height: 20.h),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 20.r,
+                color: k7F7F7F,
+              ),
+            ),
+            Column(
+              children: [
+                CustomText(
+                  text: title ?? "",
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+                SizedBox(height: 15.h),
+                CustomText(
+                  text: subTitle ?? "",
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ],
+            ),
+            SvgPicture.asset(assetName!)
           ],
         ),
       ],

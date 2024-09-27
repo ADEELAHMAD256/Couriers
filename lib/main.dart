@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'const/colors.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -22,6 +24,13 @@ class MyApp extends StatelessWidget {
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: GetMaterialApp(
+          theme: ThemeData(
+            scaffoldBackgroundColor: kOffWhite,
+            brightness: Brightness.light,
+            colorScheme: const ColorScheme.light(
+              primary: Colors.white, // Primary color for your app
+            ),
+          ),
           home: BottomNavbarScreen(),
         ),
       ),

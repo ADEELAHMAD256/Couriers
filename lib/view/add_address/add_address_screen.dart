@@ -227,7 +227,8 @@ class AddAddressScreen extends StatelessWidget {
 }
 
 class LocationDropdown extends StatelessWidget {
-  final DropdownController controller = Get.put(DropdownController());
+  final DropdownControllerAddAddress controller =
+      Get.put(DropdownControllerAddAddress());
 
   @override
   Widget build(BuildContext context) {
@@ -272,7 +273,7 @@ class LocationDropdown extends StatelessWidget {
   }
 }
 
-class DropdownController extends GetxController {
+class DropdownControllerAddAddress extends GetxController {
   var selectedLocation = ''.obs;
   List<String> locations = [
     'New York',

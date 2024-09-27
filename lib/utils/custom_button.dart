@@ -10,6 +10,8 @@ class CustomButtonFilled extends StatelessWidget {
   final Color? color;
   final Color? titleColor;
   final double? titleSize;
+  final double? horizontalPadding;
+  final double? verticalPadding;
   final FontWeight? titleWight;
   final void Function()? onTap;
   final Widget? child;
@@ -23,7 +25,9 @@ class CustomButtonFilled extends StatelessWidget {
       this.titleSize,
       this.titleWight,
       this.onTap,
-      this.child});
+      this.child,
+      this.horizontalPadding,
+      this.verticalPadding});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +36,8 @@ class CustomButtonFilled extends StatelessWidget {
       child: Container(
         height: height ?? 40.h,
         width: width,
+        padding: EdgeInsets.symmetric(
+            horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 0),
         decoration: BoxDecoration(
           color: kRed,
           borderRadius: BorderRadius.circular(100),

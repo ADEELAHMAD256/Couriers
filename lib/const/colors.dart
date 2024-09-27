@@ -7,3 +7,5 @@ Color k7F7F7F = const Color(0xff7F7F7F);
 Color k9B9FA5 = const Color(0xff9B9FA5);
 Color kGreen = const Color(0xff00944E);
 Color k3E4653 = const Color(0xff3E4653);
+Color kD7D7D7 = const Color(0xffD7D7D7);
+Color kB5AFAF = const Color(0xffB5AFAF);

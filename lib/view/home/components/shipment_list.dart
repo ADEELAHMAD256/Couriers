@@ -10,7 +10,8 @@ class ShipmentList extends StatelessWidget {
     return Expanded(
       child: ListView.separated(
         itemCount: 14,
-        separatorBuilder: (context, index) => const Divider(height: 0),
+        separatorBuilder: (context, index) =>
+            Divider(height: 0, color: kD7D7D7),
         itemBuilder: (context, index) => Container(
           color: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 25.h, vertical: 15.w),
