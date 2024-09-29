@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
   final double? fontSize;
+  final double? wordSpacing;
   final FontWeight? fontWeight;
   final Color? color;
   final TextAlign? textAlign;
@@ -19,7 +21,8 @@ class CustomText extends StatelessWidget {
     this.textAlign,
     this.textDirection,
     this.decoration,
-    this.decorationColor, // Add this to the constructor
+    this.decorationColor,
+    this.wordSpacing, // Add this to the constructor
   });
 
   @override
@@ -28,13 +31,13 @@ class CustomText extends StatelessWidget {
       text,
       textAlign: textAlign,
       textDirection: textDirection,
-      style: TextStyle(
+      style: GoogleFonts.montserrat(
+        wordSpacing: wordSpacing,
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: color,
         decoration: decoration,
-        decorationColor:
-            decorationColor, // Add this line to apply the decoration color
+        decorationColor: decorationColor, // Add this line to apply the decoration color
       ),
     );
   }

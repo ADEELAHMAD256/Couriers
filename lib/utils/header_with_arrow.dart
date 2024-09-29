@@ -43,11 +43,14 @@ class HeaderWithArrowWithActions extends StatelessWidget {
   final String? title;
   final String? subTitle;
   final String? assetName;
+  final Function? goToNextPage;
+
   const HeaderWithArrowWithActions({
     super.key,
     this.title,
     this.assetName,
     this.subTitle,
+    this.goToNextPage,
   });
 
   @override
@@ -55,34 +58,41 @@ class HeaderWithArrowWithActions extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 20.h),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: Icon(
-                Icons.arrow_back_ios,
-                size: 20.r,
-                color: k7F7F7F,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => goToNextPage!(),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  size: 20.r,
+                  color: k7F7F7F,
+                ),
               ),
-            ),
-            Column(
-              children: [
-                CustomText(
-                  text: title ?? "",
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                ),
-                SizedBox(height: 15.h),
-                CustomText(
-                  text: subTitle ?? "",
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                ),
-              ],
-            ),
-            SvgPicture.asset(assetName!)
-          ],
+              Column(
+                children: [
+                  CustomText(
+                    text: title ?? "",
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  SizedBox(height: 15.h),
+                  CustomText(
+                    text: subTitle ?? "",
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ],
+              ),
+              SvgPicture.asset(
+                assetName!,
+                height: 60.h,
+                width: 60.w,
+              )
+            ],
+          ),
         ),
       ],
     );

@@ -111,12 +111,13 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
               iconColor: kRed,
               collapsedIconColor: kRed,
               visualDensity: VisualDensity(
-                  horizontal: 0, vertical: -3.h), // Reduce padding
-
-              trailing: Icon(
-                Icons.expand_more,
-                size: 35.r, // Set the custom size for the icon
-              ),
+                horizontal: 0,
+                vertical: -3.h,
+              ), // Reduce padding
+              // trailing: Icon(
+              //   Icons.expand_more,
+              //   size: 35.r, // Set the custom size for the icon
+              // ),
               title: CustomText(
                 text: itemData[index].headerItem!,
                 fontSize: 14.0.sp,

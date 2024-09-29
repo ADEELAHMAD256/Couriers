@@ -2,6 +2,8 @@ import '../../import/common_imports.dart';
 import '../ca04_pick_up_details/ca04_pick_up_details_screen.dart';
 import '../ca05_location_on_map/ca05_location_on_map_screen.dart';
 import '../ca06_shipment_details/ca06_shipment_details_screen.dart';
+import '../ca08_payment_details/ca08_payment_details_screen.dart';
+import '../ca10_drop_off_details/ca10_drop_off_details_screen.dart';
 
 class ProgressBarScreens extends StatefulWidget {
   @override
@@ -13,7 +15,7 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
   int currentPage = 0;
   final PageController _pageController = PageController();
 
-  void updateProgress() {
+  void increaseProgress() {
     setState(() {
       progress += 1.0 / 6.0;
       _goToNextPage() // Update based on the number of steps in your form
@@ -22,11 +24,31 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
   }
 
   void _goToNextPage() {
-    if (currentPage < 2) {
+    if (currentPage < 6) {
       setState(() {
         currentPage++;
         _pageController.animateToPage(
           currentPage,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeIn,
+        );
+      });
+    }
+  }
+
+  void decreaseProgress() {
+    setState(() {
+      progress -= 1.0 / 6.0;
+      _goToPreviousPage() // Update based on the number of steps in your form
+          ;
+    });
+  }
+
+  void _goToPreviousPage() {
+    if (currentPage <= 6) {
+      setState(() {
+        currentPage--;
+        _pageController.previousPage(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeIn,
         );
@@ -42,18 +64,23 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
           children: <Widget>[
             HeaderWithArrowWithActions(
               title: "Ahmad Shehab",
+              goToNextPage: decreaseProgress,
               subTitle: currentPage == 0
                   ? "Pick-Up Details"
                   : currentPage == 1
                       ? "Location on Map"
                       : currentPage == 2
                           ? "Shipment Details"
-                          : "",
+                          : currentPage == 3
+                              ? "Payment Details"
+                              : "",
               assetName: currentPage == 0
                   ? "assets/icons/arrow_box.svg"
                   : currentPage == 1
                       ? "assets/icons/location_icon.svg"
-                      : "assets/icons/measurement.svg",
+                      : currentPage == 2
+                          ? "assets/icons/measurement.svg"
+                          : "assets/icons/arrow_box.svg",
             ),
             SizedBox(height: 20.h),
             Padding(
@@ -69,14 +96,23 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   if (index == 0) {
                     return Ca04PickUpDetailsScreen(
-                        goToNextPage: updateProgress);
+                        goToNextPage: increaseProgress);
                   } else if (index == 1) {
-                    return Ca05LocationOnMapScreen();
+                    return Ca05LocationOnMapScreen(
+                        goToNextPage: increaseProgress);
                   } else if (index == 2) {
-                    return const Ca06ShipmentDetailsScreen();
+                    return Ca06ShipmentDetailsScreen(
+                        goToNextPage: increaseProgress);
+                  } else if (index == 3) {
+                    return Ca08PaymentDetailsScreen(
+                        goToNextPage: increaseProgress);
+                  } else if (index == 4) {
+                    return Ca10DropOffDetailsScreen(
+                        goToNextPage: increaseProgress);
                   }
                 },
               ),

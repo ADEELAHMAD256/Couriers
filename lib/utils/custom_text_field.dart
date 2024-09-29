@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../const/colors.dart';
 import 'custom_text.dart';
@@ -10,24 +11,27 @@ class CustomTextField extends StatelessWidget {
   final String? icon;
   final Color? borderColor;
   final TextInputType? keyboardType;
+  final double? height;
   const CustomTextField({
     super.key,
     required this.hintText,
     this.icon,
     this.borderColor,
     this.keyboardType,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55.h,
+      height: height ?? 55.h,
       child: TextField(
         keyboardType: keyboardType,
+        cursorColor: Colors.black,
         decoration: InputDecoration(
-          // contentPadding: EdgeInsets.only(top: 20.h, left: 15.w),
+          contentPadding: EdgeInsets.only(top: 20.h, left: 15.w),
           hintText: hintText,
-          hintStyle: TextStyle(color: k7F7F7F),
+          hintStyle: GoogleFonts.montserrat(color: k7F7F7F, fontSize: 12.sp),
           prefixIcon: icon != null
               ? Padding(
                   padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
@@ -118,6 +122,7 @@ class TextFieldWithTitle extends StatelessWidget {
   final String title;
   final double? space;
   final TextInputType? keyboardType;
+  final double? height;
 
   final TextCapitalization? textCapitalization;
   final TextEditingController? controller;
@@ -129,6 +134,7 @@ class TextFieldWithTitle extends StatelessWidget {
     required this.title,
     this.space,
     this.keyboardType,
+    this.height,
   });
 
   @override
@@ -150,6 +156,8 @@ class TextFieldWithTitle extends StatelessWidget {
             SizedBox(width: 11.w),
             Expanded(
               child: CustomTextField(
+                keyboardType: keyboardType,
+                height: height,
                 hintText: hintText,
               ),
             ),

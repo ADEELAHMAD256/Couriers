@@ -37,10 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
-#  google_fonts:
+  google_fonts:
   get: ^4.6.6
   intl: ^0.19.0
   google_maps_flutter: ^2.9.0
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:

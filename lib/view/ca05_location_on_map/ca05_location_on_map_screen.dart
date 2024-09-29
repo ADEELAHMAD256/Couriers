@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../import/common_imports.dart';
+import '../../utils/custom_button.dart';
 
 class Ca05LocationOnMapScreen extends StatelessWidget {
-  Ca05LocationOnMapScreen({super.key});
+  final Function goToNextPage;
+
+  Ca05LocationOnMapScreen({super.key, required this.goToNextPage});
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
@@ -26,9 +29,7 @@ class Ca05LocationOnMapScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: 300,
-              width: double.maxFinite,
+            Expanded(
               child: GoogleMap(
                 // mapType: MapType.hybrid,
                 initialCameraPosition: _kGooglePlex,
@@ -37,6 +38,19 @@ class Ca05LocationOnMapScreen extends StatelessWidget {
                 },
               ),
             ),
+            SizedBox(height: 20.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+              child: CustomButtonFilled(
+                title: "Next",
+                height: 58.h,
+                onTap: () {
+                  // widget.index++;
+                  goToNextPage();
+                },
+              ),
+            ),
+            SizedBox(height: 20.h),
           ],
         ),
       ),

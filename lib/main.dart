@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: kOffWhite,
             brightness: Brightness.light,
-            colorScheme: const ColorScheme.light(
-              primary: Colors.white, // Primary color for your app
-            ),
+            // colorScheme: const ColorScheme.light(
+            //   primary: Colors.white, // Primary color for your app
+            // ),
           ),
           home: BottomNavbarScreen(),
         ),

@@ -1,18 +1,18 @@
 import 'package:couriers/import/common_imports.dart';
 import 'package:intl/intl.dart';
+
 import '../../utils/custom_button.dart';
 import '../../utils/custom_text_field.dart';
 
-class Ca04PickUpDetailsScreen extends StatefulWidget {
+class Ca10DropOffDetailsScreen extends StatefulWidget {
   final Function goToNextPage;
-  Ca04PickUpDetailsScreen({super.key, required this.goToNextPage});
+  Ca10DropOffDetailsScreen({super.key, required this.goToNextPage});
 
   @override
-  State<Ca04PickUpDetailsScreen> createState() =>
-      _Ca04PickUpDetailsScreenState();
+  State<Ca10DropOffDetailsScreen> createState() => _Ca10DropOffDetailsScreenState();
 }
 
-class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
+class _Ca10DropOffDetailsScreenState extends State<Ca10DropOffDetailsScreen> {
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
 
@@ -57,7 +57,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                     SizedBox(
                       width: 130.w,
                       child: CustomText(
-                        text: "Pick-Up Location:",
+                        text: "Governorate:",
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -66,33 +66,13 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                     Expanded(child: LocationDropdown())
                   ],
                 ),
-                TextFieldWithTitle(
-                  height: 45.h,
-                  hintText: "District",
-                  title: "District:",
-                ),
-                TextFieldWithTitle(
-                  height: 45.h,
-                  hintText: "Street Name",
-                  title: "Street Name:",
-                ),
-                TextFieldWithTitle(
-                  height: 45.h,
-                  hintText: "Building Number",
-                  title: "Building Number:",
-                ),
-                TextFieldWithTitle(
-                  height: 45.h,
-                  hintText: "Closest Landmark",
-                  title: "Closest Landmark:",
-                ),
                 SizedBox(height: 20.w),
                 Row(
                   children: [
                     SizedBox(
                       width: 130.w,
                       child: CustomText(
-                        text: "Pick-Up Date:",
+                        text: "Drop-Off Date:",
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -103,8 +83,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                         onTap: () => _presentDatePicker(context),
                         child: Container(
                           height: 45.h,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16.w, vertical: 12.h),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15.r),
@@ -115,10 +94,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                               SvgPicture.asset("assets/icons/Calendar.svg"),
                               SizedBox(width: 20.w),
                               CustomText(
-                                text: selectedDate == null
-                                    ? 'Choose Date'
-                                    : DateFormat('dd/MM/yyyy')
-                                        .format(selectedDate!),
+                                text: selectedDate == null ? 'Choose Date' : DateFormat('dd/MM/yyyy').format(selectedDate!),
                                 color: k7F7F7F,
                               ),
 
@@ -136,7 +112,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                     SizedBox(
                       width: 130.w,
                       child: CustomText(
-                        text: "Pick-Up Time:",
+                        text: "Drop-Off Time:",
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -147,8 +123,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                         onTap: () => _presentTimePicker(context),
                         child: Container(
                           height: 45.h,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16.w, vertical: 12.h),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15.r),
@@ -159,9 +134,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                               SvgPicture.asset("assets/icons/clock.svg"),
                               SizedBox(width: 20.w),
                               CustomText(
-                                text: selectedTime == null
-                                    ? 'Choose Time'
-                                    : selectedTime!.format(context),
+                                text: selectedTime == null ? 'Choose Time' : selectedTime!.format(context),
                                 color: k7F7F7F,
                               ),
                             ],
@@ -171,27 +144,104 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
                     )
                   ],
                 ),
+                TextFieldWithTitle(
+                  height: 45.h,
+                  hintText: "First Name",
+                  title: "Recipient’s First Name:",
+                ),
+                TextFieldWithTitle(
+                  height: 45.h,
+                  hintText: "Last Name",
+                  title: "Recipient’s Last Name:",
+                ),
+                SizedBox(height: 20.h),
+                SizedBox(
+                  height: 45.h,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 130.w,
+                        child: CustomText(
+                          text: "Recipient’s Mobile Number:",
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(width: 11.w),
+                      const Expanded(
+                        child: PhoneNumberTextField(
+                          icon: "assets/icons/flag.svg",
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20.w),
+                SizedBox(
+                  height: 45.h,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 130.w,
+                        child: CustomText(
+                          text: "Recipient’s WhatsApp Number:",
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(width: 11.w),
+                      const Expanded(
+                        child: PhoneNumberTextField(
+                          icon: "assets/icons/flag.svg",
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Row(
+                  children: [
+                    Container(
+                      height: 20.h,
+                      width: 20.w,
+                      decoration: BoxDecoration(
+                        color: kRed,
+                        borderRadius: BorderRadius.circular(5.r),
+                        border: Border.all(color: kRed),
+                      ),
+                      child: Icon(
+                        Icons.check,
+                        size: 15.r,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(width: 15.w),
+                    CustomText(text: "Same as the mobile number", fontSize: 12.sp),
+                  ],
+                ),
                 SizedBox(height: 20.h),
                 Row(
                   children: [
                     SizedBox(
-                      width: 150.w,
+                      width: 156.w,
                       child: CustomText(
-                        text: "Set Location on Map:",
+                        text: "Ask recipients to fill in the address:",
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const Spacer(),
                     CustomButtonFilled(
-                      width: 153.w,
+                      // onTap: () => customNavigator(
+                      //     context, const LinkSentSuccessfully()),
+                      width: 190.w,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SvgPicture.asset("assets/icons/pin.svg"),
+                          SvgPicture.asset("assets/icons/arrow.svg"),
                           SizedBox(width: 4.w),
                           CustomText(
-                            text: "Set Location",
+                            text: "Send to Recipient",
                             fontSize: 14.sp,
                             color: Colors.white,
                           ),
@@ -220,7 +270,7 @@ class _Ca04PickUpDetailsScreenState extends State<Ca04PickUpDetailsScreen> {
 }
 
 class LocationDropdown extends StatelessWidget {
-  final DropdownController controller = Get.put(DropdownController());
+  final DropdownController1 controller = Get.put(DropdownController1());
 
   @override
   Widget build(BuildContext context) {
@@ -229,17 +279,13 @@ class LocationDropdown extends StatelessWidget {
         height: 45.h,
         padding: EdgeInsets.symmetric(horizontal: 5.w),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15.r),
-            border: Border.all(color: k7F7F7F, width: 1.0)),
+            color: Colors.white, borderRadius: BorderRadius.circular(15.r), border: Border.all(color: k7F7F7F, width: 1.0)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Icon(Icons.keyboard_arrow_down, size: 36.r, color: k7F7F7F),
             DropdownButton<String>(
-              value: controller.selectedLocation.value.isEmpty
-                  ? null
-                  : controller.selectedLocation.value,
+              value: controller.selectedLocation.value.isEmpty ? null : controller.selectedLocation.value,
               icon: const Icon(Icons.abc, size: 0),
               elevation: 16,
               hint: const CustomText(text: "Choose Location"),
@@ -248,16 +294,14 @@ class LocationDropdown extends StatelessWidget {
               onChanged: (String? newValue) {
                 controller.updateSelectedLocation(newValue!);
               },
-              items: controller.locations
-                  .map<DropdownMenuItem<String>>((String value) {
+              items: controller.locations.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
                 );
               }).toList(),
             ),
-            Icon(Icons.keyboard_arrow_down,
-                size: 30.r, color: Colors.transparent),
+            Icon(Icons.keyboard_arrow_down, size: 30.r, color: Colors.transparent),
           ],
         ),
       ),
@@ -265,7 +309,7 @@ class LocationDropdown extends StatelessWidget {
   }
 }
 
-class DropdownController extends GetxController {
+class DropdownController1 extends GetxController {
   var selectedLocation = ''.obs;
   List<String> locations = [
     'New York',
