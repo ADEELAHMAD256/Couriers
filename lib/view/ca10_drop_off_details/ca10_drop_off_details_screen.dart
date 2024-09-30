@@ -3,10 +3,11 @@ import 'package:intl/intl.dart';
 
 import '../../utils/custom_button.dart';
 import '../../utils/custom_text_field.dart';
+import '../../utils/navigator.dart';
+import '../ca11_shipment_summary/ca11_shipment_summary_screen.dart';
 
 class Ca10DropOffDetailsScreen extends StatefulWidget {
-  final Function goToNextPage;
-  Ca10DropOffDetailsScreen({super.key, required this.goToNextPage});
+  Ca10DropOffDetailsScreen({super.key});
 
   @override
   State<Ca10DropOffDetailsScreen> createState() => _Ca10DropOffDetailsScreenState();
@@ -255,8 +256,7 @@ class _Ca10DropOffDetailsScreenState extends State<Ca10DropOffDetailsScreen> {
                   title: "Next",
                   height: 58.h,
                   onTap: () {
-                    // widget.index++;
-                    widget.goToNextPage();
+                    customNavigator(context, const CA11ShipmentSummary());
                   },
                 ),
                 SizedBox(height: 20.h),

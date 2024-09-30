@@ -17,7 +17,7 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
 
   void increaseProgress() {
     setState(() {
-      progress += 1.0 / 6.0;
+      progress += 0.23;
       _goToNextPage() // Update based on the number of steps in your form
           ;
     });
@@ -38,7 +38,7 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
 
   void decreaseProgress() {
     setState(() {
-      progress -= 1.0 / 6.0;
+      progress -= 0.23;
       _goToPreviousPage() // Update based on the number of steps in your form
           ;
     });
@@ -73,7 +73,9 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
                           ? "Shipment Details"
                           : currentPage == 3
                               ? "Payment Details"
-                              : "",
+                              : currentPage == 4
+                                  ? "Drop-Off Details"
+                                  : "",
               assetName: currentPage == 0
                   ? "assets/icons/arrow_box.svg"
                   : currentPage == 1
@@ -99,20 +101,15 @@ class _ProgressBarScreensState extends State<ProgressBarScreens> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   if (index == 0) {
-                    return Ca04PickUpDetailsScreen(
-                        goToNextPage: increaseProgress);
+                    return Ca04PickUpDetailsScreen(goToNextPage: increaseProgress);
                   } else if (index == 1) {
-                    return Ca05LocationOnMapScreen(
-                        goToNextPage: increaseProgress);
+                    return Ca05LocationOnMapScreen(goToNextPage: increaseProgress);
                   } else if (index == 2) {
-                    return Ca06ShipmentDetailsScreen(
-                        goToNextPage: increaseProgress);
+                    return Ca06ShipmentDetailsScreen(goToNextPage: increaseProgress);
                   } else if (index == 3) {
-                    return Ca08PaymentDetailsScreen(
-                        goToNextPage: increaseProgress);
-                  } else if (index == 4) {
-                    return Ca10DropOffDetailsScreen(
-                        goToNextPage: increaseProgress);
+                    return Ca08PaymentDetailsScreen(goToNextPage: increaseProgress);
+                  } else {
+                    return Ca10DropOffDetailsScreen();
                   }
                 },
               ),

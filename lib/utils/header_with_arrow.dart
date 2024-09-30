@@ -44,6 +44,7 @@ class HeaderWithArrowWithActions extends StatelessWidget {
   final String? subTitle;
   final String? assetName;
   final Function? goToNextPage;
+  final bool? isNavigate;
 
   const HeaderWithArrowWithActions({
     super.key,
@@ -51,6 +52,7 @@ class HeaderWithArrowWithActions extends StatelessWidget {
     this.assetName,
     this.subTitle,
     this.goToNextPage,
+    this.isNavigate = false,
   });
 
   @override
@@ -64,7 +66,7 @@ class HeaderWithArrowWithActions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                onPressed: () => goToNextPage!(),
+                onPressed: () => isNavigate! ? Navigator.pop(context) : goToNextPage!(),
                 icon: Icon(
                   Icons.arrow_back_ios,
                   size: 20.r,
