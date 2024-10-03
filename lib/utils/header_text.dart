@@ -8,6 +8,7 @@ class HerderText extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomText(
       text: text,
+      textAlign: TextAlign.center,
       fontSize: 18.sp,
       fontWeight: FontWeight.w600,
     );

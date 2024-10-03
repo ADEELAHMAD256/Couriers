@@ -11,3 +11,7 @@ Color kD7D7D7 = const Color(0xffD7D7D7);
 Color kB5AFAF = const Color(0xffB5AFAF);
 Color kE1E1E1 = const Color(0xffE1E1E1);
 Color k444444 = const Color(0xff444444);
+Color k222222 = const Color(0xff222222);
+Color kF9BC2F = const Color(0xffF9BC2F);
+Color kFFE6E7 = const Color(0xffFFE6E7);
+Color kD5FEE0 = const Color(0xffD5FEE0);

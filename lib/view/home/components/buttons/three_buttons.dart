@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../../utils/navigator.dart';
 import '../../../add_address/add_address_screen.dart';
 import '../../../address_book/address_book_screen.dart';
+import '../../../ho/ho06_withdraw_balance/ho06_withdraw_balance_screen.dart';
 import 'button_data_model.dart';
 
 class ThreeButtons extends StatelessWidget {
@@ -21,9 +22,11 @@ class ThreeButtons extends StatelessWidget {
           (index) => GestureDetector(
             onTap: () {
               if (index == 0) {
-                customNavigator(context, const AddAddressScreen());
+                Get.to(const AddAddressScreen());
               } else if (index == 1) {
-                customNavigator(context, const AddressBookScreen());
+                Get.to(const AddressBookScreen());
+              } else {
+                Get.to(const HO06WithdrawBalanceScreen());
               }
             },
             child: Container(

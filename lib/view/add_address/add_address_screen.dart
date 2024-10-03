@@ -3,7 +3,6 @@ import 'package:couriers/utils/custom_button.dart';
 import 'package:couriers/utils/custom_text_field.dart';
 import 'package:couriers/utils/navigator.dart';
 import 'package:couriers/view/successful/link_send/link_sent_successfully.dart';
-import '../../utils/header_with_arrow.dart';
 
 class AddAddressScreen extends StatelessWidget {
   const AddAddressScreen({super.key});
@@ -23,8 +22,7 @@ class AddAddressScreen extends StatelessWidget {
                   const HeaderWithArrow(title: "Add Address"),
                   SizedBox(height: 30.h),
                   CustomText(
-                    text:
-                        "** Addresses can only be saved until being used once.",
+                    text: "** Addresses can only be saved until being used once.",
                     fontSize: 12.sp,
                   ),
                   SizedBox(height: 20.h),
@@ -98,16 +96,14 @@ class AddAddressScreen extends StatelessWidget {
                               SizedBox(
                                 width: 130.w,
                                 child: CustomText(
-                                  text:
-                                      "Ask recipients to fill in the address:",
+                                  text: "Ask recipients to fill in the address:",
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const Spacer(),
                               CustomButtonFilled(
-                                onTap: () => customNavigator(
-                                    context, const LinkSentSuccessfully()),
+                                onTap: () => customNavigator(context, const LinkSentSuccessfully()),
                                 width: 190.w,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -178,8 +174,7 @@ class AddAddressScreen extends StatelessWidget {
                               SizedBox(
                                 width: 130.w,
                                 child: CustomText(
-                                  text:
-                                      "Ask recipients to fill in the address:",
+                                  text: "Ask recipients to fill in the address:",
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -227,8 +222,7 @@ class AddAddressScreen extends StatelessWidget {
 }
 
 class LocationDropdown extends StatelessWidget {
-  final DropdownControllerAddAddress controller =
-      Get.put(DropdownControllerAddAddress());
+  final DropdownControllerAddAddress controller = Get.put(DropdownControllerAddAddress());
 
   @override
   Widget build(BuildContext context) {
@@ -237,17 +231,13 @@ class LocationDropdown extends StatelessWidget {
         height: 55.h,
         padding: EdgeInsets.symmetric(horizontal: 5.w),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15.r),
-            border: Border.all(color: k7F7F7F, width: 1.0)),
+            color: Colors.white, borderRadius: BorderRadius.circular(15.r), border: Border.all(color: k7F7F7F, width: 1.0)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Icon(Icons.keyboard_arrow_down, size: 36.r, color: k7F7F7F),
             DropdownButton<String>(
-              value: controller.selectedLocation.value.isEmpty
-                  ? null
-                  : controller.selectedLocation.value,
+              value: controller.selectedLocation.value.isEmpty ? null : controller.selectedLocation.value,
               icon: const Icon(Icons.abc, size: 0),
               elevation: 16,
               hint: const CustomText(text: "Choose Location"),
@@ -256,16 +246,14 @@ class LocationDropdown extends StatelessWidget {
               onChanged: (String? newValue) {
                 controller.updateSelectedLocation(newValue!);
               },
-              items: controller.locations
-                  .map<DropdownMenuItem<String>>((String value) {
+              items: controller.locations.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
                 );
               }).toList(),
             ),
-            Icon(Icons.keyboard_arrow_down,
-                size: 30.r, color: Colors.transparent),
+            Icon(Icons.keyboard_arrow_down, size: 30.r, color: Colors.transparent),
           ],
         ),
       ),

@@ -29,7 +29,10 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         cursorColor: Colors.black,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: 20.h, left: 15.w),
+          contentPadding: EdgeInsets.only(
+            // top: 20.h,
+            left: 15.w,
+          ),
           hintText: hintText,
           hintStyle: GoogleFonts.montserrat(color: k7F7F7F, fontSize: 12.sp),
           prefixIcon: icon != null
@@ -59,12 +62,14 @@ class PhoneNumberTextField extends StatelessWidget {
   final String? icon;
   final Color? borderColor;
   final double? height;
+  final double? hintTextSize;
   const PhoneNumberTextField({
     super.key,
     this.hintText,
     this.icon,
     this.borderColor,
     this.height,
+    this.hintTextSize,
   });
 
   @override
@@ -74,9 +79,9 @@ class PhoneNumberTextField extends StatelessWidget {
       child: TextField(
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: 20.h, left: 15.w),
+          contentPadding: EdgeInsets.only(left: 15.w),
           hintText: hintText ?? "",
-          hintStyle: TextStyle(color: k7F7F7F),
+          hintStyle: TextStyle(color: k7F7F7F, fontSize: hintTextSize ?? 12.sp),
           prefixIcon: icon != null
               ? Padding(
                   padding: EdgeInsets.only(top: 10.h, bottom: 10.h),

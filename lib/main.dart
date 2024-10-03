@@ -1,6 +1,5 @@
-import 'package:couriers/view/bottom_navbar/bottom_navbar_screen.dart';
-import 'package:couriers/view/captains/captains_screen.dart';
-import 'package:couriers/view/home/home_screen.dart';
+import 'package:couriers/view/ho/ho10_statement/ho10_statement_screen.dart';
+import 'package:couriers/view/si/si01_signin/si01_signin_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,7 +30,8 @@ class MyApp extends StatelessWidget {
             //   primary: Colors.white, // Primary color for your app
             // ),
           ),
-          home: BottomNavbarScreen(),
+          home: const StatementScreen(),
+          // home: const SI01SignInScreen(),
         ),
       ),
     );

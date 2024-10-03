@@ -2,6 +2,7 @@ import 'package:couriers/import/common_imports.dart';
 import 'package:intl/intl.dart';
 
 import '../../utils/custom_button.dart';
+import '../../utils/custom_check_box.dart';
 import '../../utils/custom_text_field.dart';
 import '../../utils/navigator.dart';
 import '../ca11_shipment_summary/ca11_shipment_summary_screen.dart';
@@ -200,26 +201,7 @@ class _Ca10DropOffDetailsScreenState extends State<Ca10DropOffDetailsScreen> {
                   ),
                 ),
                 SizedBox(height: 10.h),
-                Row(
-                  children: [
-                    Container(
-                      height: 20.h,
-                      width: 20.w,
-                      decoration: BoxDecoration(
-                        color: kRed,
-                        borderRadius: BorderRadius.circular(5.r),
-                        border: Border.all(color: kRed),
-                      ),
-                      child: Icon(
-                        Icons.check,
-                        size: 15.r,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(width: 15.w),
-                    CustomText(text: "Same as the mobile number", fontSize: 12.sp),
-                  ],
-                ),
+                const CustomCheckBox(value: false, label: "Same as the mobile number"),
                 SizedBox(height: 20.h),
                 Row(
                   children: [

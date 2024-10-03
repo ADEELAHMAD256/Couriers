@@ -1,5 +1,8 @@
+import 'package:couriers/utils/navigator.dart';
+
 import '../../import/common_imports.dart';
 import '../../utils/custom_button.dart';
+import '../successful/link_send/ca13_check_out_success.dart';
 
 class CA12CheckOutScreen extends StatefulWidget {
   const CA12CheckOutScreen({super.key});
@@ -175,7 +178,7 @@ class _CA12CheckOutScreenState extends State<CA12CheckOutScreen> {
                       title: "Check Out",
                       height: 58.h,
                       onTap: () {
-                        // widget.index++;
+                        customNavigator(context, const CA13CheckOutSuccess());
                       },
                     ),
                     SizedBox(height: 20.h),
